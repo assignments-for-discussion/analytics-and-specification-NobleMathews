@@ -14,3 +14,9 @@ it('reports the average as NaN on an empty list', ()=> {
 it('ignores NaN in the input', ()=> {
   expect(average([1, NaN, 2])).to.be.approximately(1.5, 0.01);
 });
+
+it('reports the average as NaN on high coefficient of variance', ()=> {
+  // Default threshold set to 0.25 change based on process data
+  // Other alternatives include using interquartiles or limiting max delta
+  expect(average([1, 3, 10, 11])).to.be.NaN;
+});
